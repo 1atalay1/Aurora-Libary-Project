@@ -8,8 +8,10 @@ For the front end, I utilized Bootstrap for a responsive layout, EJS for dynamic
 
 Reader Operations
 =================
--Sign up
+1)Sign up
+
 2)Update account details or delete their account (only if they have returned all borrowed books)
+
 3)List all books or search for specific books based on a query
 4)Borrow books (up to 5 books at a time, provided they do not already have 5 books checked out)
 5)Return borrowed books
