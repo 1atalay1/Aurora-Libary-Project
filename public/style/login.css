@@ -1,0 +1,50 @@
+.subcontainer{
+    display: flex;
+  
+}
+form{
+    width: 100%;
+}
+#subcontainer2{
+    height: 70vh;
+}
+
+.error-message {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb; /* Light red border */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+    display: block;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .error-message strong {
+    font-weight: bold;
+  }
+  
+
+@media(max-width:768px){
+    #main{
+        display: flex;
+        flex-direction: column !important;
+        height: max-content;
+    }
+    #subcontainer2{
+        height: 700px !important;
+    }
+    .subcontainer{
+        width: 100% !important;   
+    }
+}
+
+@media (max-width:992px){
+    .subcontainer{
+        width: 100% !important;   
+    }
+}

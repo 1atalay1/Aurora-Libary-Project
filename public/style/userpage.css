@@ -1,0 +1,16 @@
+
+
+@media (max-width: 992px) {
+    #special {
+        justify-content: space-around !important;
+    }
+}
+
+.info{
+    height: 70vh;
+    background-color: #F8F9FA !important;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}

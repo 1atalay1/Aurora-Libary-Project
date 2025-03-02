@@ -1,0 +1,119 @@
+html{
+    background-color:#F8F9FA;
+}
+.container-fluid.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    background-color: #F8F9FA; /* Light background */
+    padding: 20px;
+}
+
+.elements {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+
+.btn-primary {
+    background-color: #007BFF; /* Bootstrap Blue */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.bookcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+   
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: max-content;
+    justify-content: space-between;
+   
+}
+
+ .name, .author, .type, .page {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 8px;
+    min-height: 30px;
+}
+
+.book input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+.book span{
+    display: none;
+}
+.book input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+@media (max-width: 992px) {
+    #special {
+        justify-content: space-around !important;
+    }
+    
+}
+@media(max-width:700px){
+    .book form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .book span{
+        display: contents;
+    }
+}

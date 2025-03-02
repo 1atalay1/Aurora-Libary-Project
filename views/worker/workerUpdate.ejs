@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/userpage.css">
+    <style>
+        .myContainer{
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .myContainer *{
+            width: 100%;
+        }
+        @media(max-width:800px){
+            .myContainer{
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+    </style>
+</head>
+<body style="background-color:#F8F9FA !important;">
+    
+    <nav class="navbar navbar-expand-sm bg-body-tertiary rounded"  aria-label="Thirteenth navbar example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#special" aria-controls="special" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse d-lg-flex" id="special">
+            <a class="navbar-brand col-lg-3 me-0" href="/" id="brand"><i>Aurora</i></a>
+            <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/workermainpage" id="homebtn">Home</a>
+              </li>
+              <%if(display===true){%>
+                <li class="nav-item">
+                  <a class="nav-link borrowHistory" href="/getWorkers">Workers</a>
+              </li>  
+              <%}%>
+              <li class="nav-item">
+                <a class="nav-link borrowHistory" href="/getBooks" >Books</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Borrows</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item borrowBook" href="/getBorrowHistory">Borrow History</a></li>
+                  <li><a class="dropdown-item returnBook" href="/getCurrentLoans">Current Loans</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Readers</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item borrowBook" href="/getReaders">Search Readers</a></li>
+                  <li><a class="dropdown-item returnBook" href="/getFeedbacks">Reader's Feedbacks</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="d-lg-flex col-lg-2 justify-content-lg-end">
+              <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%=name%><br><%=id%></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/" id="logOutBtn">Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <center><h2 class="my-4 container-fluid"><%=title%></h2></center>
+          
+        <%if(locals.data) {%>
+            <div class="myContainer">
+                <form action="/workerUpdateResult" method="POST">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Worker Name</label>
+                        <input type="text" class="form-control" name="workerName" value="<%=data[0].name%>"  required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Worker Surname</label>
+                        <input type="text" class="form-control" name="workerSurname" value="<%=data[0].surname%>"  required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Title</label>
+                        <input type="text" class="form-control" name="title" value="<%=data[0].access_level%>"  required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Mail</label>
+                        <input type="email" class="form-control" name="mail" value="<%=data[0].mail%>"  required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Phone</label>
+                        <input type="text" class="form-control" name="phone" value="<%=data[0].phone%>"  required>
+                      </div>
+                     
+                    </div>
+                    <input type="hidden" name="workerID" value="<%=data[0].id%>">
+                    <button type="submit" class="btn btn-success mt-3" ><%=btnName%></button>
+                </form>
+              </div>
+        <% }else {%>
+            <div class="myContainer">
+                <form action="/workerAddResult" method="POST">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Worker Name</label>
+                        <input type="text" class="form-control" name="workerName"   required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Worker Surname</label>
+                        <input type="text" class="form-control" name="workerSurname"   required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Title</label>
+                        <input type="text" class="form-control" name="title"   required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" name="password"   required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Mail</label>
+                        <input type="email" class="form-control" name="mail"   required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Phone</label>
+                        <input type="text" class="form-control" name="phone"   required>
+                      </div>
+                     
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success mt-3" ><%=btnName%></button>
+                </form>
+              </div>
+        <%}%>
+
+      
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
