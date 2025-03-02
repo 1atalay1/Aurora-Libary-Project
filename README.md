@@ -5,8 +5,9 @@ Before using this project make sure you install all the must modules with npm i 
 
 This project is fully responsive, ensuring seamless usability across various devices, including computers and mobile phones.
 For the front end, I utilized Bootstrap for a responsive layout, EJS for dynamic templating, and custom CSS for styling and design refinements. On the back end, I implemented Node.js (Express) for efficient server-side operations and PostgreSQL for reliable data management.
-===================================
+
 Reader Operations
+=================
 1)Sign up
 2)Update account details or delete their account (only if they have returned all borrowed books)
 3)List all books or search for specific books based on a query
@@ -15,8 +16,9 @@ Reader Operations
 6)View current loans
 7)View borrowing history
 8)Send feedback to a worker
-====================================
+
 Worker Operations
+================
 1)List all readers or search for specific readers based on a query
 2)Delete reader accounts (only if the reader currently has no borrowed books)
 3)View all feedback or search for specific feedback based on a query (only managers or admins can delete feedback)
@@ -29,4 +31,4 @@ Worker Operations
 10)Update worker information (only admins or managers)
 11)Delete worker accounts (only admins or managers)
 12)Add new workers (only admins or managers)
-=======================================
+
